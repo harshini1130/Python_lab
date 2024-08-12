@@ -1,0 +1,23 @@
+import re
+
+def validate_aadhar(aadhar_number):
+    pattern = r'^\d{4}\s\d{4}\s\d{4}$'
+    return bool(re.fullmatch(pattern, aadhar_number))
+
+def validate_dob(dob):
+    # This pattern checks for the correct date format and valid day, month, and year
+    pattern = r'^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.(1[0-9]{3}|2[0-9]{3})$'
+    return bool(re.fullmatch(pattern, dob))
+
+aadhar_number = input("Enter your Aadhar card number (XXXX XXXX XXXX): ")
+dob = input("Enter your date of birth (DD.MM.YYYY): ")
+
+if validate_aadhar(aadhar_number):
+    print("Aadhar card number is valid.")
+else:
+    print("Aadhar card number is not valid.")
+
+if validate_dob(dob):
+    print("Date of birth is valid.")
+else:
+    print("Date of birth is not valid.")
